@@ -1,0 +1,322 @@
+*{
+  font-family: 'DynaPuff', cursive;
+  font-family: 'Kablammo', cursive;
+  font-family: 'Poppins', sans-serif;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url("./manchas.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100%;
+  height: 100%;
+}
+
+/*#confeti{
+  margin: 0;
+  padding: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100%;
+}*/
+
+.cabecera{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1{
+    display: flex;
+    margin-top: 0px;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+}
+
+h2{
+    font-size: medium;
+    padding: 0px;
+    margin-top: 0px;
+}
+
+img{
+    display: flex;
+    margin-top: 0px;
+    
+}
+
+.cuadro{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    
+}
+
+#listaNombres{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: medium;
+}
+
+
+#btnPreparar{
+    flex-direction: column;
+    align-items:center;
+    padding: 5px;
+    background-color: palevioletred;
+    border-style: groove;
+    border-radius: 10px;
+    margin-top: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: medium;
+    width: 300px;
+}
+
+#btnPreparar:hover{
+    background-color: rgb(233, 199, 230);
+    
+}
+
+
+#resultado{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: larger;
+    padding: 10px;
+   
+    
+}
+
+#alertMessage1{
+  color:#a32c7f;
+}
+
+#alertMessage2{
+  color:#a32c7f;
+}
+
+.custom-alert1 {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    
+    
+  }
+
+  .custom-alert2 {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .custom-alert-content1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #e6bcd9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    font-weight: bolder;
+
+  }
+
+  .custom-alert-content2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color:  #e6bcd9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    font-weight: bolder;
+  }
+  
+  .custom-alert-content1 p {
+    margin: 0 0 10px;
+  }
+
+  .custom-alert-content2 p {
+    margin: 0 0 10px;
+  }
+  
+  .custom-alert-content1 button {
+    background-color: #ff00b3;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    flex-direction: column;
+    
+  }
+
+  .custom-alert-content2 button {
+    background-color: #ff00b3;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .custom-alert-content1 button:hover {
+    background-color: #ff00b3;
+  }
+
+  .custom-alert-content2 button:hover {
+    background-color: #ff00b3;
+  }
+
+  @media (max-width: 768px){
+  body{
+    background-size: 100% auto;
+    background-image: url("./manchas.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100%;
+    
+  }
+
+ /* #confeti{
+    margin: 0;
+    padding: 0;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}*/
+  #listaNombres{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: small;
+}
+
+#btnPreparar{
+  flex-direction: column;
+  align-items:center;
+  padding: 5px;
+  background-color: palevioletred;
+  border-style: groove;
+  border-radius: 10px;
+  margin-top: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: medium;
+  width: 200px;
+}
+
+h1{
+  display: flex;
+  margin-top: 0px;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+  
+}
+
+h2{
+  font-size: small;
+  padding: 0px;
+  margin-top: 0px;
+}
+
+.custom-alert1 {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  
+}
+
+.custom-alert2 {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.custom-alert-content1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color:  #e6bcd9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.custom-alert-content2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color:  #e6bcd9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.custom-alert-content1 p {
+  margin: 0 0 10px;
+}
+
+.custom-alert-content2 p {
+  margin: 0 0 10px;
+}
+
+.custom-alert-content1 button {
+  background-color: #ff00b3;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  flex-direction: column;
+  
+}
+
+.custom-alert-content2 button {
+  background-color: #ff00b3;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.custom-alert-content1 button:hover {
+  background-color: #ff00b3;
+}
+
+.custom-alert-content2 button:hover {
+  background-color: #ff00b3;
+}
+
+
+}
