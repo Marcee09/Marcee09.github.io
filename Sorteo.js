@@ -52,19 +52,19 @@ function agregarCampo() {
     }
   
     resultadosDiv.innerHTML = `
-        <h2>Resultados del Sorteo</h2><br>
-        <div class="Lista-ganadores">
+    <h2>Resultados del Sorteo</h2><br>
+    <div class="Lista-ganadores">
         <h3>Ganadores principales:</h3>
-        <li>
+        <ol>
             ${seleccionados.map(ganador => `<li>${ganador}</li>`).join('')}
-        </li>
+        </ol>
         <h3>Ganadores suplentes:</h3>
-        <li>
+        <ol>
             ${suplentes.map(suplente => `<li>${suplente}</li>`).join('')}
-        </li><br>
-        </div>
-        <p>¡Felicidades a los ganadores!</p>
-    `;
+        </ol><br>
+    </div>
+    <p>¡Felicidades a los ganadores!</p>
+`;
   }
   
 
