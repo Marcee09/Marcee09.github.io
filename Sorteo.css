@@ -1,7 +1,7 @@
 :root {
   --primary: #f74780;
   --primary-dark: #fc6998;
-  --secondary: #fc9dfc;
+  --secondary: #ff9a9e;
   --background: #f8fafc;
   --text: #1e293b;
   --card: #ffffff;
@@ -313,6 +313,22 @@ button:hover {
   .nombre-row button {
       width: 32px;
       height: 32px;
+  }
+
+  .nombre-row button {
+    background: #ff9a9e;
+    color: rgb(49, 47, 47);
+    border: none;
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
   }
 
 }
