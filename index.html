@@ -4,36 +4,41 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="./Sorteo.css" rel="stylesheet" type="text/css">
-        <script src="./Sorteo.js"></script>
         <title>Sorteo Bonté</title>
     </head>
 
     <body>
-      <div>
-      <div id="primeraParte">
-        <div class="cabecera">
-            <img id="logo" src="./logo.png" width="140px" height="200px">
-            <h1>SORTEO</h1>
-            <label for="cantidadGanadores">Cantidad de ganadores:</label>
-            <input type="number" id="cantidadGanadores" min="1" value="3">
-            <label for="cantidadSuplentes">Cantidad de suplentes:</label>
-            <input type="number" id="cantidadSuplentes" min="0" value="0">
-        </div>
+        <div>
+            <div id="primeraParte">
+                <div class="cabecera">
+                    <img id="logo" src="./logo.png" width="140px" height="200px" alt="Logo">
+                    <h1>SORTEO</h1>
+                    <label for="cantidadGanadores">Cantidad de ganadores:</label>
+                    <input type="number" id="cantidadGanadores" min="1" value="1">
+                    <label for="cantidadSuplentes">Cantidad de suplentes:</label>
+                    <input type="number" id="cantidadSuplentes" min="0" value="0">
+                </div>
 
+                <div class="cuadro">
+                    <h2>Ingrese los nombres de los participantes</h2>
+                    <div id="nombresContainer">
+                        <div class="nombre-row">
+                            <input type="text" placeholder="Ingrese un nombre" class="nombre-input">
+                            <button type="button" onclick="agregarCampo()">Agregar otro participante</button> 
+                        </div>
+                    </div>
 
-        
-        <div class="cuadro">
-          <h2>Ingrese los nombres de los participantes</h2>
-            <div id="nombresContainer">
-                <div class="nombre-row">
-                    <input type="text" placeholder="Ingrese un nombre" class="nombre-input">
-                    <button type="button" onclick="agregarCampo()">+</button>
+                    <button id="btnPreparar" type="submit" onclick="obtenerNombreAleatorio()">Sortear</button><br>
+
+                    <div id="resultados"></div>
+                  
+                </div>
+                </div>
                 </div>
             </div>
-
-            <button id="btnPreparar" type="submit" onclick="obtenerNombreAleatorio()">Sortear</button>
         </div>
-    </div>
-  </div>
+        <script src="./Sorteo.js" defer></script>
     </body>
 </html>
+
+

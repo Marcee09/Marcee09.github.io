@@ -1,7 +1,7 @@
 :root {
   --primary: #f74780;
   --primary-dark: #fc6998;
-  --secondary: #c7d2fe;
+  --secondary: #fc9dfc;
   --background: #f8fafc;
   --text: #1e293b;
   --card: #ffffff;
@@ -29,67 +29,13 @@ body {
   color: var(--text);
 }
 
-/* Estilos para las etiquetas y entradas */
-label {
-  font-size: 1rem;
-  color: var(--text);
-  margin-bottom: 0.5rem;
-  display: block;
-  font-weight: 600;
-  letter-spacing: 0.05em;
+p{
+  color:#f74780;
 }
 
-input[type="number"] {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border: 2px solid var(--secondary);
-  border-radius: 12px;
-  font-size: 1rem;
-  background: var(--background);
-  color: var(--text);
-  transition: all 0.2s ease;
-  margin-bottom: 1rem;
+h2{
+  color:#344cb6;
 }
-
-input[type="number"]:focus {
-  outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
-}
-
-/* Contenedor para los inputs y etiquetas */
-.input-group {
-  margin-bottom: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-/* Espaciado entre las etiquetas y los inputs */
-.input-group label {
-  margin-bottom: 0.25rem;
-}
-
-.input-group input {
-  margin-top: 0.25rem;
-}
-
-
-/* Transición para ocultar el botón */
-.nombre-row button.hidden {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-}
-
-/* Estilo de campos completados */
-.nombre-input.completed {
-  background: var(--secondary);
-  color: var(--text);
-  cursor: not-allowed;
-  border-color: var(--primary-dark);
-}
-
 
 #primeraParte {
   width: 100%;
@@ -121,7 +67,7 @@ input[type="number"]:focus {
 h1 {
   font-size: 3rem;
   font-weight: 800;
-  color:#f74780;
+  color: var(--primary);
   margin-bottom: 0.5rem;
   letter-spacing: 0.1em;
 }
@@ -131,6 +77,7 @@ h2 {
   color: var(--text);
   opacity: 0.8;
   font-weight: 500;
+  margin-bottom: 1.5rem;
 }
 
 .cuadro {
@@ -139,6 +86,33 @@ h2 {
   border-radius: 24px;
   box-shadow: var(--shadow-lg);
   border: 1px solid var(--secondary);
+}
+
+label {
+  font-size: 1rem;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+  display: block;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--secondary);
+  border-radius: 12px;
+  font-size: 1rem;
+  background: var(--background);
+  color: var(--text);
+  transition: all 0.2s ease;
+  margin-bottom: 1rem;
+}
+
+input[type="number"]:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
 }
 
 #nombresContainer {
@@ -150,6 +124,7 @@ h2 {
 
 .nombre-row {
   display: flex;
+  flex-direction: column;
   gap: 0.75rem;
   align-items: center;
   animation: slideIn 0.3s ease;
@@ -173,24 +148,53 @@ h2 {
 }
 
 .nombre-row button {
-  background: var(--primary);
-  color: white;
+  background: #ff9a9e;
+  color: rgb(49, 47, 47);
   border: none;
-  width: 36px;
+  width: auto;
   height: 36px;
   border-radius: 10px;
-  font-size: 1.25rem;
+  font-size: 1rem;
   cursor: pointer;
   transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
+  padding: 15px;
 }
 
-.nombre-row button:hover {
+button:hover {
   background: var(--primary-dark);
   transform: translateY(-2px);
+}
+
+.Lista-ganadores {
+  list-style-type: decimal; /* Números para lista ordenada */
+  margin: 20px auto; /* Centramos la lista */
+  padding: 10px; /* Espaciado interno */
+  max-width: 400px; /* Ancho máximo para la lista */
+  background-color: #f9f9f9; /* Fondo claro */
+  border-radius: 10px; /* Bordes redondeados */
+  border: 2px solid #ddd; /* Borde sutil */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+  font-family: 'Arial', sans-serif; /* Fuente legible */
+  font-size: 16px; /* Tamaño de texto */
+}
+
+.Lista-ganadores li {
+  margin: 10px 0; /* Separación entre ítems */
+  padding: 5px; /* Espaciado interno */
+  background: linear-gradient(90deg, #ff9a9e, #fad0c4); /* Fondo degradado */
+  border-radius: 5px; /* Bordes redondeados en ítems */
+  color: #333; /* Texto oscuro */
+  font-weight: bold; /* Texto en negrita */
+  transition: transform 0.3s, background-color 0.3s; /* Transiciones para efectos */
+}
+
+.Lista-ganadores li:hover {
+  transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+  background: linear-gradient(90deg, #a1c4fd, #c2e9fb); /* Cambio de color */
+  cursor: pointer; /* Indicador de interacción */
 }
 
 #btnPreparar {
@@ -206,18 +210,12 @@ h2 {
   transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 2px;
-  position: relative;
-  overflow: hidden;
 }
 
 #btnPreparar:hover {
   background: var(--primary-dark);
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
-}
-
-#btnPreparar:active {
-  transform: translateY(0);
 }
 
 .custom-alert1,
@@ -247,6 +245,7 @@ h2 {
   text-align: center;
   box-shadow: var(--shadow-lg);
   border: 1px solid var(--secondary);
+  animation: fadeIn 0.3s ease-in-out;
 }
 
 #alertMessage1,
@@ -257,64 +256,97 @@ h2 {
   line-height: 1.6;
 }
 
-.custom-alert-content1 button,
-.custom-alert-content2 button {
-  background: var(--primary);
-  color: white;
-  border: none;
-  padding: 0.75rem 2rem;
-  border-radius: 10px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.custom-alert-content1 button:hover,
-.custom-alert-content2 button:hover {
-  background: var(--primary-dark);
-  transform: translateY(-2px);
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.8);
+  }
+  to {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+  }
 }
 
 @keyframes slideIn {
   from {
-    opacity: 0;
-    transform: translateY(-10px);
+      opacity: 0;
+      transform: translateY(-10px);
   }
   to {
-    opacity: 1;
-    transform: translateY(0);
+      opacity: 1;
+      transform: translateY(0);
   }
+}
+
+.resultados-contenedor {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.ganadores-seccion, .suplentes-seccion {
+  margin: 20px 0;
+}
+
+.resultados-contenedor ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.resultados-contenedor li {
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+
+.boton-reiniciar {
+  display: block;
+  margin: 20px auto 0;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.boton-reiniciar:hover {
+  background-color: #0056b3;
 }
 
 @media (max-width: 768px) {
   body {
-    padding: 1rem;
+      padding: 1rem;
   }
   
   .cabecera {
-    padding: 1.5rem;
+      padding: 1.5rem;
   }
   
   h1 {
-    font-size: 2.25rem;
+      font-size: 2.25rem;
   }
   
   h2 {
-    font-size: 1rem;
+      font-size: 1rem;
   }
   
   .cuadro {
-    padding: 1.5rem;
+      padding: 1.5rem;
   }
   
   .nombre-input {
-    font-size: 0.9rem;
-    padding: 0.6rem 0.8rem;
+      font-size: 0.9rem;
+      padding: 0.6rem 0.8rem;
   }
   
   .nombre-row button {
-    width: 32px;
-    height: 32px;
+      width: 32px;
+      height: 32px;
   }
 }
+
