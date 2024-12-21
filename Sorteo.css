@@ -80,6 +80,11 @@ h2 {
   margin-bottom: 1.5rem;
 }
 
+.resultados h3{
+  color:#434547;
+  font-size: 1.1rem;
+}
+
 .cuadro {
   background: var(--card);
   padding: 2rem;
@@ -152,7 +157,7 @@ input[type="number"]:focus {
   color: rgb(49, 47, 47);
   border: none;
   width: auto;
-  height: 36px;
+  height: auto;
   border-radius: 10px;
   font-size: 1rem;
   cursor: pointer;
@@ -278,45 +283,6 @@ button:hover {
   }
 }
 
-.resultados-contenedor {
-  max-width: 600px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.ganadores-seccion, .suplentes-seccion {
-  margin: 20px 0;
-}
-
-.resultados-contenedor ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.resultados-contenedor li {
-  padding: 10px;
-  margin: 5px 0;
-  background-color: #f8f9fa;
-  border-radius: 4px;
-}
-
-.boton-reiniciar {
-  display: block;
-  margin: 20px auto 0;
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.boton-reiniciar:hover {
-  background-color: #0056b3;
-}
 
 @media (max-width: 768px) {
   body {
@@ -348,5 +314,6 @@ button:hover {
       width: 32px;
       height: 32px;
   }
+
 }
 
