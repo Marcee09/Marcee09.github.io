@@ -9,36 +9,31 @@
     </head>
 
     <body>
-        
-      <img id="confeti" src="./papelitos.gif" width="100%" height="100%">
+      <div>
       <div id="primeraParte">
         <div class="cabecera">
-          <img id="logo"src="./logo.png" width="140px" height="200px">
-         <h1>S O R T E O </h1>
-         <h2>Ingrese los nombres de los participantes</h2>
+            <img id="logo" src="./logo.png" width="140px" height="200px">
+            <h1>SORTEO</h1>
+            <label for="cantidadGanadores">Cantidad de ganadores:</label>
+            <input type="number" id="cantidadGanadores" min="1" value="3">
+            <label for="cantidadSuplentes">Cantidad de suplentes:</label>
+            <input type="number" id="cantidadSuplentes" min="0" value="0">
         </div>
+
+
         
         <div class="cuadro">
-         
-         <textarea id="listaNombres" rows="10" cols="30"></textarea>
+          <h2>Ingrese los nombres de los participantes</h2>
+            <div id="nombresContainer">
+                <div class="nombre-row">
+                    <input type="text" placeholder="Ingrese un nombre" class="nombre-input">
+                    <button type="button" onclick="agregarCampo()">+</button>
+                </div>
+            </div>
 
-         <button id="btnPreparar" type="submit" onclick="obtenerNombreAleatorio()">Sortear </button>
-        
+            <button id="btnPreparar" type="submit" onclick="obtenerNombreAleatorio()">Sortear</button>
         </div>
-      </div>
-    
-    <div id="customAlert1" class="custom-alert">
-        <div class="custom-alert-content1">
-          <p id="alertMessage1"></p>
-          <button onclick="hideCustomAlert1()">Aceptar</button>
-        </div>
-      </div>
-
-      <div id="customAlert2" class="custom-alert">
-        <div class="custom-alert-content2">
-          <p id="alertMessage2"></p>
-          <button onclick="hideCustomAlert2()">Aceptar</button>
-        </div>
-      </div>
+    </div>
+  </div>
     </body>
 </html>

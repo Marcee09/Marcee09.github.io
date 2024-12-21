@@ -1,115 +1,202 @@
 :root {
-  --primary: #2c3e50;
-  --accent: #e74c3c;
-  --background: #ecf0f1;
-  --text: #2c3e50;
+  --primary: #f74780;
+  --primary-dark: #fc6998;
+  --secondary: #c7d2fe;
+  --background: #f8fafc;
+  --text: #1e293b;
   --card: #ffffff;
+  --error: #ef4444;
+  --success: #22c55e;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1);
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Inter', 'Segoe UI', sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
 }
 
 body {
-  background: var(--background);
+  background: linear-gradient(135deg, var(--background), #eef2ff);
   min-height: 100vh;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 2rem;
-  position: relative;
+  color: var(--text);
 }
 
-#confeti {
-  position: fixed;
-  top: 0;
-  left: 0;
+/* Estilos para las etiquetas y entradas */
+label {
+  font-size: 1rem;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+  display: block;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+input[type="number"] {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
-  opacity: 0.7;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--secondary);
+  border-radius: 12px;
+  font-size: 1rem;
+  background: var(--background);
+  color: var(--text);
+  transition: all 0.2s ease;
+  margin-bottom: 1rem;
+}
+
+input[type="number"]:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* Contenedor para los inputs y etiquetas */
+.input-group {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Espaciado entre las etiquetas y los inputs */
+.input-group label {
+  margin-bottom: 0.25rem;
+}
+
+.input-group input {
+  margin-top: 0.25rem;
+}
+
+
+/* Transición para ocultar el botón */
+.nombre-row button.hidden {
+  opacity: 0;
   pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Estilo de campos completados */
+.nombre-input.completed {
+  background: var(--secondary);
+  color: var(--text);
+  cursor: not-allowed;
+  border-color: var(--primary-dark);
+}
+
+
+#primeraParte {
+  width: 100%;
+  max-width: 600px;
 }
 
 .cabecera {
   background: var(--card);
-  padding: 3rem;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 600px;
-  position: relative;
-  z-index: 2;
+  padding: 2.5rem;
+  border-radius: 24px;
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--secondary);
 }
 
 #logo {
-  width: 100px;
+  width: 120px;
   height: auto;
-  margin-bottom: 2rem;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+  margin-bottom: 1.5rem;
   transition: transform 0.3s ease;
+  filter: drop-shadow(var(--shadow-sm));
 }
 
 #logo:hover {
-  transform: translateY(-5px);
+  transform: translateY(-5px) scale(1.05);
 }
 
 h1 {
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 800;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-  text-align: center;
-  
-  /* Aplicar el degradado */
-  background: linear-gradient(45deg, var(--primary), var(--accent));
-  -webkit-background-clip: text; /* Clip el fondo al texto */
-  -webkit-text-fill-color: transparent; /* Hace que el texto sea transparente */
+  color:#f74780;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.1em;
 }
 
 h2 {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: var(--text);
   opacity: 0.8;
-  text-align: center;
-  margin-bottom: 2rem;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .cuadro {
-  background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1));
-  backdrop-filter: blur(10px);
+  background: var(--card);
   padding: 2rem;
-  border-radius: 15px;
-  width: 100%;
+  border-radius: 24px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--secondary);
 }
 
-#listaNombres {
-  width: 100%;
-  min-height: 200px;
-  background: rgba(255, 255, 255, 0.9);
-  border: 2px solid rgba(44, 62, 80, 0.1);
-  border-radius: 12px;
-  padding: 1rem;
-  font-size: 1rem;
-  resize: vertical;
+#nombresContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   margin-bottom: 1.5rem;
-  transition: all 0.3s ease;
 }
 
-#listaNombres:focus {
+.nombre-row {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  animation: slideIn 0.3s ease;
+}
+
+.nombre-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--secondary);
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  background: var(--background);
+  color: var(--text);
+}
+
+.nombre-input:focus {
   outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 4px rgba(231, 76, 60, 0.1);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.nombre-row button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.nombre-row button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
 }
 
 #btnPreparar {
   width: 100%;
   padding: 1rem;
-  background: var(--accent);
+  background: var(--primary);
   color: white;
   border: none;
   border-radius: 12px;
@@ -119,12 +206,18 @@ h2 {
   transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 2px;
+  position: relative;
+  overflow: hidden;
 }
 
 #btnPreparar:hover {
-  background: #c0392b;
+  background: var(--primary-dark);
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(231, 76, 60, 0.2);
+  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
+}
+
+#btnPreparar:active {
+  transform: translateY(0);
 }
 
 .custom-alert1,
@@ -134,8 +227,8 @@ h2 {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
   display: none;
   z-index: 100;
 }
@@ -147,41 +240,51 @@ h2 {
   left: 50%;
   transform: translate(-50%, -50%);
   background: var(--card);
-  padding: 2.5rem;
+  padding: 2rem;
   border-radius: 20px;
   width: 90%;
   max-width: 400px;
   text-align: center;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--secondary);
 }
 
 #alertMessage1,
 #alertMessage2 {
   font-size: 1.25rem;
-  color: var(--primary);
-  margin-bottom: 2rem;
+  color: var(--text);
+  margin-bottom: 1.5rem;
   line-height: 1.6;
 }
 
 .custom-alert-content1 button,
 .custom-alert-content2 button {
-  background: var(--accent);
+  background: var(--primary);
   color: white;
   border: none;
-  padding: 1rem 2.5rem;
+  padding: 0.75rem 2rem;
   border-radius: 10px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  transition: all 0.2s ease;
 }
 
 .custom-alert-content1 button:hover,
 .custom-alert-content2 button:hover {
-  background: #c0392b;
+  background: var(--primary-dark);
   transform: translateY(-2px);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 768px) {
@@ -190,11 +293,11 @@ h2 {
   }
   
   .cabecera {
-    padding: 2rem;
+    padding: 1.5rem;
   }
   
   h1 {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
   
   h2 {
@@ -205,13 +308,13 @@ h2 {
     padding: 1.5rem;
   }
   
-  #listaNombres {
-    min-height: 150px;
+  .nombre-input {
+    font-size: 0.9rem;
+    padding: 0.6rem 0.8rem;
   }
-}
-
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
+  
+  .nombre-row button {
+    width: 32px;
+    height: 32px;
+  }
 }

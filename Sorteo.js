@@ -1,78 +1,79 @@
-
-document.addEventListener("DOMContentLoaded", function() {
-  var customAlert1 = document.getElementById('customAlert1');
+document.addEventListener("DOMContentLoaded", function () {
+  const customAlert1 = document.getElementById('customAlert1');
   customAlert1.style.display = 'none';
-  var customAlert2 = document.getElementById('customAlert2');
+
+  const customAlert2 = document.getElementById('customAlert2');
   customAlert2.style.display = 'none';
-  var confeti=document.getElementById('confeti');
-  confeti.style.display='none'
+
+  const confeti = document.getElementById('confeti');
+  confeti.style.display = 'none';
 });
 
-
 function obtenerNombreAleatorio() {
-    var nombres = document.getElementById('listaNombres').value;
-    var nombresArray = nombres.split('\n').map(nombre => nombre.trim()).filter(nombre => nombre !== '');
-  
-   /* if (nombresArray.length === 0) {
-        document.getElementById('resultado').innerHTML = 'No se han ingresado nombres.';
-    } else {
-        var nombreAleatorio = nombresArray[Math.floor(Math.random() * nombresArray.length)];
-        document.getElementById('resultado').innerHTML = 'Ganador: '+ nombreAleatorio + '🎉🎉🎉';
-        
-    }
+  const nombres = Array.from(document.querySelectorAll('.nombre-input'))
+      .map(input => input.value.trim())
+      .filter(nombre => nombre !== "");
 
-      if (nombresArray.length === 0) {
-        document.getElementById('resultado').innerHTML = 'No se han ingresado nombres.';
-    } else {
-        var nombreAleatorio = nombresArray[Math.floor(Math.random() * nombresArray.length)];
-        document.getElementById('resultado').innerHTML = 'Ganador: '+ nombreAleatorio + '🎉🎉🎉';
-        
-    }*/
+  const cantidadGanadores = parseInt(document.getElementById('cantidadGanadores').value) || 0;
+  const cantidadSuplentes = parseInt(document.getElementById('cantidadSuplentes').value) || 0;
 
-    let boton= document.getElementById('btnPreparar');
+  if (nombres.length < cantidadGanadores + cantidadSuplentes) {
+      document.getElementById('alertMessage1').innerHTML = "No hay suficientes nombres registrados para el sorteo.";
+      const customAlert1 = document.getElementById('customAlert1');
+      customAlert1.style.display = 'block';
+      return;
+  }
 
-    if ((boton.click)&&(nombresArray.length === 0)) {
-       // alert("No se han ingresado nombres");
-        var alert1= document.getElementById('alertMessage1').innerHTML="No se han registrado nombres";
-        var customAlert1= document.getElementById('customAlert1');
-        customAlert1.style.display = 'block';
-      
-    
-    }else{
-        
-       // alert("Felicidades" + " "+ nombreAleatorio + " "+"ganaste!");
-       
-       var nombreAleatorio1 = nombresArray[Math.floor(Math.random() * nombresArray.length)];
-       var nombreAleatorio2 = nombresArray[Math.floor(Math.random() * nombresArray.length)];
-       var nombreAleatorio3 = nombresArray[Math.floor(Math.random() * nombresArray.length)];
-       var alert2 = document.getElementById('alertMessage2').innerHTML = "#1: " + nombreAleatorio1 + "<br>#2: " + nombreAleatorio2 + "<br>#3: " + nombreAleatorio3;
+  const seleccionados = [];
+  while (seleccionados.length < cantidadGanadores && nombres.length > 0) {
+      const indice = Math.floor(Math.random() * nombres.length);
+      seleccionados.push(nombres.splice(indice, 1)[0]);
+  }
 
-        var customAlert2= document.getElementById('customAlert2');
-        customAlert2.style.display = 'block';
-        var confeti=document.getElementById('confeti');
-        confeti.style.display='block';
-        var primeraParte=document.getElementById('primeraParte');
-        primeraParte.style.display='none';
-      
-    }
+  const suplentes = [];
+  while (suplentes.length < cantidadSuplentes && nombres.length > 0) {
+      const indice = Math.floor(Math.random() * nombres.length);
+      suplentes.push(nombres.splice(indice, 1)[0]);
+  }
+
+  document.getElementById('alertMessage2').innerHTML = `
+      <strong>Ganadores:</strong><br>${seleccionados.join('<br>') || 'Sin ganadores'}<br><br>
+      <strong>Suplentes:</strong><br>${suplentes.join('<br>') || 'Sin suplentes'}
+  `;
+  document.getElementById('customAlert2').style.display = 'block';
+  document.getElementById('confeti').style.display = 'block';
+  document.getElementById('primeraParte').style.display = 'none';
 }
 
-/*function showCustomAlert1() {
-    var customAlert1= document.getElementsById('customAlert1');
-    customAlert1.style.display = 'block';
-  }*/
+function hideCustomAlert1() {
+  document.getElementById("customAlert1").style.display = "none";
+}
 
- 
+function hideCustomAlert2() {
+  document.getElementById("customAlert2").style.display = "none";
+}
 
-  
-  function hideCustomAlert1() {
-    var customAlert = document.getElementById("customAlert1");
-    customAlert.style.display = "none";
+function agregarCampo() {
+  // Eliminar el botón del último campo
+  const ultimoCampo = document.querySelector('.nombre-row:last-child');
+  if (ultimoCampo) {
+      const boton = ultimoCampo.querySelector('button');
+      if (boton) {
+          boton.remove();
+      }
   }
 
-  function hideCustomAlert2() {
-    var customAlert = document.getElementById("customAlert2");
-    customAlert.style.display = "none";
-  }
+  // Crear un nuevo campo al final
+  const container = document.getElementById('nombresContainer');
+  const nuevoRow = document.createElement('div');
+  nuevoRow.classList.add('nombre-row');
+  nuevoRow.innerHTML = `
+      <input type="text" placeholder="Ingrese un nombre" class="nombre-input">
+      <button type="button" onclick="agregarCampo()">+</button>
+  `;
+  container.appendChild(nuevoRow);
+}
+
+
 
 
